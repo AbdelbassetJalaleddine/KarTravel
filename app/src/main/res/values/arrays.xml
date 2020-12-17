@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Gender">
+        <item
+            >Male</item>
+        <item
+            >Female</item>
+    </string-array>
+    <string-array name="Position">
+        <item>Travel Agent</item>
+        <item>Corporate Travel Consultant</item>
+        <item>Office Manager</item>
+    </string-array>
+    <array name="rainbow">
+        <item>@color/rainbow_pink</item>
+        <item>@color/rainbow_violet</item>
+        <item>@color/rainbow_blue</item>
+    </array>
+</resources>

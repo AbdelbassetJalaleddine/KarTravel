@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Kar Travel</string>
+    <string name="gender">Gender</string>
+    <string name="enter_your_name">Enter Your Name</string>
+    <string name="please_enter_your_Info_below">Please Enter Your Info below</string>
+    <string name="enter_your_number">Enter Your Number</string>
+    <string name="validate">Validate</string>
+    <string name="already_have_an_account_sign_in">Already have an account? Sign In</string>
+    <string name="signin">Sign In</string>
+    <string name="waiting_for_the_code_to_be_verified">Waiting for the Code to be Verified</string>
+    <string name="if_it_doesn_t_automatically_verify_the_code_please_enter_it_below">if it doesn\'t automatically verify the code please enter it below</string>
+    <string name="enter_code">Enter Code</string>
+    <string name="hello">hello</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_faq">FAQ</string>
+    <string name="title_calendar">Calender</string>
+</resources>

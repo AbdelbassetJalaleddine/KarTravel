@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/profile"
+        android:title="Profile" />
+    <item
+        android:id="@+id/navigation_packages"
+        android:icon="@drawable/packages"
+        android:title="Packages" />
+
+    <item
+        android:id="@+id/navigation_track"
+        android:icon="@drawable/track"
+        android:title="Track" />
+    <item
+        android:id="@+id/navigation_verify"
+        android:icon="@drawable/verify"
+        android:title="Verify" />
+    <item
+        android:id="@+id/navigation_employees"
+        android:icon="@drawable/maleengineer"
+        android:title="Employees" />
+</menu>
