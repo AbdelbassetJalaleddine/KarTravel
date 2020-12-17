@@ -8,29 +8,6 @@
     android:layout_height="match_parent"
     tools:context=".ProfileActivity">
 
-    <mehdi.sakout.fancybuttons.FancyButton
-        android:id="@+id/Statisticsbutton"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:onClick="StatisticsActivity"
-        app:layout_constraintHorizontal_bias="1.0"
-        fancy:fb_borderColor="#FFFFFF"
-        fancy:fb_borderWidth="1dp"
-        fancy:fb_defaultColor="@color/colorPrimary"
-        fancy:fb_focusColor="@color/colorPrimary"
-        fancy:fb_iconPosition="left"
-        fancy:fb_radius="30dp"
-        fancy:fb_text="Statistics"
-        fancy:fb_textColor="#FFFFFF"
-        fancy:layout_constraintEnd_toEndOf="parent"
-        fancy:layout_constraintStart_toStartOf="parent"
-        fancy:layout_constraintTop_toBottomOf="@+id/ContactsListButton" />
-
     <EditText
         android:id="@+id/PhoneNumbereditText"
         android:layout_width="wrap_content"
@@ -63,66 +40,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginBottom="24dp"
-        android:onClick="ContactAdder"
-        android:text="Contact Adder"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />-->
-
-    <mehdi.sakout.fancybuttons.FancyButton
-        android:id="@+id/ContactsListButton"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:onClick="ContactsActivity"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PhoneNumbereditText"
-        fancy:fb_borderColor="#FFFFFF"
-        fancy:fb_borderWidth="1dp"
-        fancy:fb_defaultColor="@color/colorPrimary"
-        fancy:fb_focusColor="@color/colorPrimary"
-        fancy:fb_iconPosition="left"
-        fancy:fb_radius="30dp"
-        fancy:fb_text="Contacts List"
-        fancy:fb_textColor="#FFFFFF" />
-
-    <mehdi.sakout.fancybuttons.FancyButton
-        android:id="@+id/Emergencybutton"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:onClick="EmergencyActivity"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Statisticsbutton"
-        app:layout_constraintVertical_bias="0.0"
-        fancy:fb_borderColor="#FFFFFF"
-        fancy:fb_borderWidth="1dp"
-        fancy:fb_defaultColor="@color/colorPrimary"
-        fancy:fb_focusColor="@color/colorPrimary"
-        fancy:fb_iconPosition="left"
-        fancy:fb_radius="30dp"
-        fancy:fb_text="Emergency Information"
-        fancy:fb_textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/textView5"

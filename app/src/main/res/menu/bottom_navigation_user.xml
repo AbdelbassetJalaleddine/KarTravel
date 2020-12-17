@@ -9,7 +9,7 @@
         android:icon="@drawable/packages"
         android:title="Packages" />
     <item
-        android:id="@+id/navigation_track"
+        android:id="@+id/navigation_pending"
         android:icon="@drawable/track"
-        android:title="Track" />
+        android:title="Pending" />
 </menu>

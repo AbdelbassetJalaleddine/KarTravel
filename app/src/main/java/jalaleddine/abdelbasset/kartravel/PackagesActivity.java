@@ -72,7 +72,7 @@ public class PackagesActivity extends AppCompatActivity {
                         return true;
                     case R.id.navigation_packages:
                         return true;
-                    case R.id.navigation_track:
+                    case R.id.navigation_pending:
                         startActivity(new Intent(getApplicationContext(), TrackerActivity.class));
                         return true;
                     case R.id.navigation_verify:

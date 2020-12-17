@@ -13,7 +13,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -48,7 +47,7 @@ public class ProfileActivity extends AppCompatActivity implements ForceUpdateChe
         iv = findViewById(R.id.imageView);
         nameeditText = findViewById(R.id.NameeditText);
         phoneeditText = findViewById(R.id.PhoneNumbereditText);
-        emergencybutton = findViewById(R.id.Emergencybutton);
+        /*emergencybutton = findViewById(R.id.Emergencybutton);
         //emergencybutton.setIconResource(R.drawable.emergency);
         emergencybutton.setIconPosition(FancyButton.POSITION_BOTTOM);
 
@@ -59,7 +58,7 @@ public class ProfileActivity extends AppCompatActivity implements ForceUpdateChe
         contactslistbutton = findViewById(R.id.ContactsListButton);
         //contactslistbutton.setIconResource(R.drawable.contacts_list);
         contactslistbutton.setIconPosition(FancyButton.POSITION_BOTTOM);
-
+*/
         spotsDialog = new SpotsDialog.Builder().setContext(ProfileActivity.this).
         setMessage("Loading Information...").build();
         spotsDialog.show();
@@ -134,7 +133,7 @@ public class ProfileActivity extends AppCompatActivity implements ForceUpdateChe
                     case R.id.navigation_packages:
                         startActivity(new Intent(getApplicationContext(), PackagesActivity.class));
                         return true;
-                    case R.id.navigation_track:
+                    case R.id.navigation_pending:
                         startActivity(new Intent(getApplicationContext(), TrackerActivity.class));
                         return true;
                     case R.id.navigation_verify:

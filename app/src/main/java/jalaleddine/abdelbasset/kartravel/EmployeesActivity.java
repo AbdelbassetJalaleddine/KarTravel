@@ -5,14 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
 
 import dmax.dialog.SpotsDialog;
 
@@ -29,7 +27,6 @@ public class EmployeesActivity extends AppCompatActivity {
         spotsDialog.show();
         BottomNavigation();
     }
-
     @Override
     protected void onResume() {
         navigationView.setSelectedItemId(R.id.navigation_employees);
@@ -49,7 +46,7 @@ public class EmployeesActivity extends AppCompatActivity {
                     case R.id.navigation_packages:
                         startActivity(new Intent(getApplicationContext(), PackagesActivity.class));
                         return true;
-                    case R.id.navigation_track:
+                    case R.id.navigation_pending:
                         startActivity(new Intent(getApplicationContext(), TrackerActivity.class));
                         return true;
                     case R.id.navigation_verify:
@@ -71,9 +68,8 @@ public class EmployeesActivity extends AppCompatActivity {
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_add) {
-
+            startActivity(new Intent(getApplicationContext(), AddEmployeeActivity.class));
         }
-
         return super.onOptionsItemSelected(item);
     }
     public boolean onCreateOptionsMenu(Menu menu) {

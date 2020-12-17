@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import dmax.dialog.SpotsDialog;
-import mehdi.sakout.fancybuttons.FancyButton;
 
 public class TrackerActivity extends AppCompatActivity {
 
@@ -31,7 +30,7 @@ public class TrackerActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        navigationView.setSelectedItemId(R.id.navigation_track);
+        navigationView.setSelectedItemId(R.id.navigation_pending);
         super.onResume();
     }
 
@@ -45,20 +44,20 @@ public class TrackerActivity extends AppCompatActivity {
             //adder
             //TODO: Fix it for Employees
             navigationView.inflateMenu(R.menu.bottom_navigation_employee);
-            navigationView.setSelectedItemId(R.id.navigation_track);
+            navigationView.setSelectedItemId(R.id.navigation_pending);
 
         }
         else if (number.contains("61657756")){
             //TODO: Fix for User
 
             navigationView.inflateMenu(R.menu.bottom_navigation_user);
-            navigationView.setSelectedItemId(R.id.navigation_track);
+            navigationView.setSelectedItemId(R.id.navigation_pending);
 
         }
         else{
             //TODO: Fix for Admin
             navigationView.inflateMenu(R.menu.bottom_navigation_admin);
-            navigationView.setSelectedItemId(R.id.navigation_track);
+            navigationView.setSelectedItemId(R.id.navigation_pending);
 
         }
         spotsDialog.dismiss();
@@ -66,7 +65,7 @@ public class TrackerActivity extends AppCompatActivity {
 
     private void BottomNavigation() {
         navigationView = findViewById(R.id.bottom_navigation_employee);
-        navigationView.setSelectedItemId(R.id.navigation_track);
+        navigationView.setSelectedItemId(R.id.navigation_pending);
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -77,7 +76,7 @@ public class TrackerActivity extends AppCompatActivity {
                     case R.id.navigation_packages:
                         startActivity(new Intent(getApplicationContext(), PackagesActivity.class));
                         return true;
-                    case R.id.navigation_track:
+                    case R.id.navigation_pending:
                         return true;
                     case R.id.navigation_verify:
                         startActivity(new Intent(getApplicationContext(), VerifyActivity.class));

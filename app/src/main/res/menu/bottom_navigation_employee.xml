@@ -11,9 +11,9 @@
         android:title="Packages" />
 
     <item
-        android:id="@+id/navigation_track"
+        android:id="@+id/navigation_pending"
         android:icon="@drawable/track"
-        android:title="Track" />
+        android:title="Pending" />
     <item
         android:id="@+id/navigation_verify"
         android:icon="@drawable/verify"

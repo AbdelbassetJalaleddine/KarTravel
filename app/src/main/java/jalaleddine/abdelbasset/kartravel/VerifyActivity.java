@@ -76,7 +76,7 @@ public class VerifyActivity extends AppCompatActivity {
                     case R.id.navigation_packages:
                         startActivity(new Intent(getApplicationContext(), PackagesActivity.class));
                         return true;
-                    case R.id.navigation_track:
+                    case R.id.navigation_pending:
                         startActivity(new Intent(getApplicationContext(), TrackerActivity.class));
                         return true;
                     case R.id.navigation_verify:
