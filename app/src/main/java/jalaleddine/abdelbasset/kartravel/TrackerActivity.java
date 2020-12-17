@@ -28,6 +28,13 @@ public class TrackerActivity extends AppCompatActivity {
         BottomNavigation();
         GetInfo();
     }
+
+    @Override
+    protected void onResume() {
+        navigationView.setSelectedItemId(R.id.navigation_track);
+        super.onResume();
+    }
+
     private void GetInfo() {
         SharedPreferences editor = getSharedPreferences("UsersData", MODE_PRIVATE);
         String number = editor.getString("phonenumber", "1");
@@ -38,15 +45,21 @@ public class TrackerActivity extends AppCompatActivity {
             //adder
             //TODO: Fix it for Employees
             navigationView.inflateMenu(R.menu.bottom_navigation_employee);
+            navigationView.setSelectedItemId(R.id.navigation_track);
+
         }
         else if (number.contains("61657756")){
             //TODO: Fix for User
 
             navigationView.inflateMenu(R.menu.bottom_navigation_user);
+            navigationView.setSelectedItemId(R.id.navigation_track);
+
         }
         else{
             //TODO: Fix for Admin
             navigationView.inflateMenu(R.menu.bottom_navigation_admin);
+            navigationView.setSelectedItemId(R.id.navigation_track);
+
         }
         spotsDialog.dismiss();
     }

@@ -73,6 +73,12 @@ public class ProfileActivity extends AppCompatActivity implements ForceUpdateChe
         startService(intent);*/
     }
 
+    @Override
+    protected void onResume() {
+        navigationView.setSelectedItemId(R.id.navigation_profile);
+        super.onResume();
+    }
+
     private void GetInfo() {
         SharedPreferences editor = getSharedPreferences("UsersData", MODE_PRIVATE);
         String number = editor.getString("phonenumber", "1");
@@ -89,6 +95,8 @@ public class ProfileActivity extends AppCompatActivity implements ForceUpdateChe
                                         iv.setImageResource(R.drawable.femaleengineer);
                                     }
                                     navigationView.inflateMenu(R.menu.bottom_navigation_employee);
+                                    navigationView.setSelectedItemId(R.id.navigation_profile);
+
                                 }
                                 else if (number.contains("61657756")){
                                     //TODO: Fix for User
@@ -99,11 +107,15 @@ public class ProfileActivity extends AppCompatActivity implements ForceUpdateChe
                                         iv.setImageResource(R.drawable.femaleuser);
                                     }
                                    navigationView.inflateMenu(R.menu.bottom_navigation_user);
+                                    navigationView.setSelectedItemId(R.id.navigation_profile);
+
                                 }
                                 else{
                                     //TODO: Fix for Admin
                                     iv.setImageResource(R.drawable.admin);
                                     navigationView.inflateMenu(R.menu.bottom_navigation_admin);
+                                    navigationView.setSelectedItemId(R.id.navigation_profile);
+
                                 }
                                 nameeditText.setText(name);
                                 phoneeditText.setText(number);

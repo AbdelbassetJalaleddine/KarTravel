@@ -30,6 +30,12 @@ public class EmployeesActivity extends AppCompatActivity {
         BottomNavigation();
     }
 
+    @Override
+    protected void onResume() {
+        navigationView.setSelectedItemId(R.id.navigation_employees);
+        super.onResume();
+    }
+
     private void BottomNavigation() {
         navigationView = findViewById(R.id.bottom_navigation_employee);
         navigationView.setSelectedItemId(R.id.navigation_employees);

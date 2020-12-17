@@ -38,17 +38,26 @@ public class PackagesActivity extends AppCompatActivity {
             //TODO: Fix it for Employees
 
             navigationView.inflateMenu(R.menu.bottom_navigation_employee);
+            navigationView.setSelectedItemId(R.id.navigation_packages);
         }
         else if (number.contains("61657756")){
             //TODO: Fix for User
 
             navigationView.inflateMenu(R.menu.bottom_navigation_user);
+            navigationView.setSelectedItemId(R.id.navigation_packages);
         }
         else{
             //TODO: Fix for Admin
             navigationView.inflateMenu(R.menu.bottom_navigation_admin);
+            navigationView.setSelectedItemId(R.id.navigation_packages);
         }
         spotsDialog.dismiss();
+    }
+
+    @Override
+    protected void onResume() {
+        navigationView.setSelectedItemId(R.id.navigation_packages);
+        super.onResume();
     }
 
     private void BottomNavigation() {
