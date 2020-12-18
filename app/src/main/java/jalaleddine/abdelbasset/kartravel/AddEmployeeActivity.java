@@ -36,7 +36,7 @@ public class AddEmployeeActivity extends AppCompatActivity implements DatePicker
     Spinner spinnerGender;
     Spinner positionSpinner;
 
-    EditText editTextLastSeen;
+    EditText editTextDOB;
     EditText editTextStartingDate;
     String PickedStartingDate;
     String PickedDOB;
@@ -49,10 +49,10 @@ public class AddEmployeeActivity extends AppCompatActivity implements DatePicker
 
 
     // Connect to MSSQL
-    private static String ip = "192.168.10.102";
+    private static String ip = "192.168.10.101";
     private static String port = "1433";
     private static String forgy = "net.sourceforge.jtds.jdbc.Driver";
-    private static String database = "master";
+    private static String database = "KARTRAVEL";
     private static String username = "sa";
     private static String pass = "BSJProductions@2";
     private static String url = "jdbc:jtds:sqlserver://" + ip
@@ -62,7 +62,16 @@ public class AddEmployeeActivity extends AppCompatActivity implements DatePicker
 
     String do_it = "meow";
 
-
+    String FirstName;
+    String MiddleName;
+    String LastName;
+    String gender;
+    String number;
+    String code;
+    String position;
+    String salary;
+    String address;
+    String IBAN;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +81,7 @@ public class AddEmployeeActivity extends AppCompatActivity implements DatePicker
         editTextFirstName = findViewById(R.id.editTextFirstName);
         editTextMiddleName = findViewById(R.id.editTextMiddleName);
         editTextLastName = findViewById(R.id.editTextLastName);
-        editTextLastSeen = findViewById(R.id.editTextLastSeen);
+        editTextDOB = findViewById(R.id.editTextDOB);
         editTextStartingDate = findViewById(R.id.editTextStartingDate);
         editTextPhone = findViewById(R.id.editTextPhone);
         countryCodePicker = findViewById(R.id.ccp);
@@ -87,18 +96,19 @@ public class AddEmployeeActivity extends AppCompatActivity implements DatePicker
     }
 
     public void AddEmployee(View view) {
-        String FirstName = editTextFirstName.getText().toString().trim();
-        String MiddleName = editTextMiddleName.getText().toString().trim();
-        String LastName = editTextLastName.getText().toString().trim();
-        String gender = spinnerGender.getSelectedItem().toString();
-        String number = editTextPhone.getText().toString().trim();
-        String code = "+"+ countryCodePicker.getSelectedCountryCode() + number;
-        String postion = positionSpinner.getSelectedItem().toString();
-        String salary = editTextMonthlySalary.getText().toString().trim();
-        String address = editTextAddress.getText().toString().trim();
-        String IBAN = editTextIBANNumber.getText().toString().trim();
+        FirstName = editTextFirstName.getText().toString().trim();
+        MiddleName = editTextMiddleName.getText().toString().trim();
+        LastName = editTextLastName.getText().toString().trim();
+        gender = spinnerGender.getSelectedItem().toString();
+        number = editTextPhone.getText().toString().trim();
+        code = "+"+ countryCodePicker.getSelectedCountryCode() + number;
+        position = positionSpinner.getSelectedItem().toString();
+        salary = editTextMonthlySalary.getText().toString().trim();
+        address = editTextAddress.getText().toString().trim();
+        IBAN = editTextIBANNumber.getText().toString().trim();
         if(!pickedDate || !pickedDate2){
             Toast.makeText(this, "Please fill all the information", Toast.LENGTH_SHORT).show();
+            return;
         }
         else{
             SharedPreferences editor = getSharedPreferences("EmployeeID", MODE_PRIVATE);
@@ -109,10 +119,11 @@ public class AddEmployeeActivity extends AppCompatActivity implements DatePicker
             editor2.putInt("ID", realID);
             editor2.apply();
 
-           /* do_it = "insert into dbo.Employee " +
+           do_it = "insert into dbo.Customer " +
                     "(employeeID,fName,mName,lName,phoneNumber,dob,position,startingDate,monthlySalary,address,ibanNumber,employeeType,employeeGender) " +
-                    "VALUES('" + realID +"'," +  + "'" +phoney + "'" +"," + weighty + "," + heighty + ",'" + gender +"');";
-*/
+                    "VALUES(" + realID + "," + FirstName + "," + MiddleName + "," + LastName + "," +
+                    "'" +code + "'" +",'" + PickedDOB + "'," + position + ",'" + PickedStartingDate + "'," + salary + ",'" + address + "'," + IBAN + "," +
+                    "Employee" + "," + gender +");";
             AddtoDatabase();
         }
     }
@@ -150,7 +161,7 @@ public class AddEmployeeActivity extends AppCompatActivity implements DatePicker
                         dayy = 0 + dayy;
                     }
                     PickedDOB = dayy + "-" + monthy + "-" + year;
-                    editTextLastSeen.setText(PickedDOB);
+                    editTextDOB.setText(PickedDOB);
                     // LastSeenEditText.setText(milliseconds(PickedCalenderDate));
                     pickedDate = true;
                 }

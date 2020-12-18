@@ -100,7 +100,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextLastName" />
 
     <EditText
-        android:id="@+id/editTextLastSeen"
+        android:id="@+id/editTextDOB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -135,7 +135,7 @@
         android:maxLength="10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ccp"
-        app:layout_constraintTop_toBottomOf="@+id/editTextLastSeen" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextDOB" />
 
     <com.hbb20.CountryCodePicker
         android:id="@+id/ccp"
