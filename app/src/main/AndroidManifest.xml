@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_plane"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddEmployeeActivity"></activity>
+        <activity android:name=".AddPackageActivity"></activity>
+        <activity android:name=".AddEmployeeActivity" />
         <activity android:name=".EmployeesActivity" />
         <activity android:name=".VerifyActivity" />
         <activity android:name=".TrackerActivity" />

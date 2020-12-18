@@ -1,6 +1,7 @@
 package jalaleddine.abdelbasset.kartravel;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.DatePickerDialog;
 import android.content.SharedPreferences;
@@ -16,9 +17,12 @@ import android.widget.Toast;
 import com.hbb20.CountryCodePicker;
 
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
 
 import static android.os.Build.VERSION_CODES.N;
 
@@ -54,7 +58,7 @@ public class AddEmployeeActivity extends AppCompatActivity implements DatePicker
     private static String forgy = "net.sourceforge.jtds.jdbc.Driver";
     private static String database = "KARTRAVEL";
     private static String username = "sa";
-    private static String pass = "BSJProductions@2";
+    private static String pass = "SmartGym";
     private static String url = "jdbc:jtds:sqlserver://" + ip
             + ":" + port + "/" + database;
     private Connection connection = null;
@@ -91,8 +95,6 @@ public class AddEmployeeActivity extends AppCompatActivity implements DatePicker
         editTextMonthlySalary = findViewById(R.id.editTextMonthlySalary);
         editTextAddress = findViewById(R.id.editTextAddress);
         editTextIBANNumber = findViewById(R.id.editTextIBANNumber);
-
-
     }
 
     public void AddEmployee(View view) {
@@ -101,7 +103,7 @@ public class AddEmployeeActivity extends AppCompatActivity implements DatePicker
         LastName = editTextLastName.getText().toString().trim();
         gender = spinnerGender.getSelectedItem().toString();
         number = editTextPhone.getText().toString().trim();
-        code = "+"+ countryCodePicker.getSelectedCountryCode() + number;
+        code = countryCodePicker.getSelectedCountryCode() + number;
         position = positionSpinner.getSelectedItem().toString();
         salary = editTextMonthlySalary.getText().toString().trim();
         address = editTextAddress.getText().toString().trim();
@@ -119,31 +121,13 @@ public class AddEmployeeActivity extends AppCompatActivity implements DatePicker
             editor2.putInt("ID", realID);
             editor2.apply();
 
-           do_it = "insert into dbo.Customer " +
+           do_it = "insert into dbo.EMPLOYEE " +
                     "(employeeID,fName,mName,lName,phoneNumber,dob,position,startingDate,monthlySalary,address,ibanNumber,employeeType,employeeGender) " +
-                    "VALUES(" + realID + "," + FirstName + "," + MiddleName + "," + LastName + "," +
-                    "'" +code + "'" +",'" + PickedDOB + "'," + position + ",'" + PickedStartingDate + "'," + salary + ",'" + address + "'," + IBAN + "," +
-                    "Employee" + "," + gender +");";
+                    "VALUES("  + realID  + "," + "'" + FirstName + "'" + "," + "'" + MiddleName + "'" + "," + "'" + LastName  + "'" + "," +
+                    "'" +code + "'" +",'" + PickedDOB + "'," +
+                   "'" + position + "'" + ",'" + PickedStartingDate + "'," + salary + ",'" +address + "'," + "'" + IBAN + "'" + "," +
+                    "'Employee'" + "," +  "'" + gender  + "'" +");";
             AddtoDatabase();
-        }
-    }
-    private void GetFromDatabase() {
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy
-                .Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
-
-        try {
-            Class.forName(forgy);
-            connection = DriverManager.getConnection(url,username
-                    ,pass);
-            System.out.println("Done " + do_it);
-            Statement statement = connection.createStatement();
-            statement.execute(do_it);
-
-            Toast.makeText(this, "Added to Database!", Toast.LENGTH_SHORT).show();
-
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
         }
     }
     public void AddDateLastSeen(View view) {
@@ -160,7 +144,7 @@ public class AddEmployeeActivity extends AppCompatActivity implements DatePicker
                     if(dayy.length() == 1){
                         dayy = 0 + dayy;
                     }
-                    PickedDOB = dayy + "-" + monthy + "-" + year;
+                    PickedDOB = year + "-" + monthy + "-" + dayy;
                     editTextDOB.setText(PickedDOB);
                     // LastSeenEditText.setText(milliseconds(PickedCalenderDate));
                     pickedDate = true;
@@ -184,10 +168,9 @@ public class AddEmployeeActivity extends AppCompatActivity implements DatePicker
 
         try {
             Class.forName(forgy);
-            connection = DriverManager.getConnection(url,username
-                    ,pass);
+            Connection connection2 = DriverManager.getConnection(url,username,pass);
             System.out.println("Done " + do_it);
-            Statement statement = connection.createStatement();
+            Statement statement = connection2.createStatement();
             statement.execute(do_it);
             Toast.makeText(this, "Added to Database!", Toast.LENGTH_SHORT).show();
 
@@ -210,7 +193,7 @@ public class AddEmployeeActivity extends AppCompatActivity implements DatePicker
                     if(dayy.length() == 1){
                         dayy = 0 + dayy;
                     }
-                    PickedStartingDate = dayy + "-" + monthy + "-" + year;
+                    PickedStartingDate =  year + "-" + monthy + "-" + dayy ;
                     editTextStartingDate.setText(PickedStartingDate);
                     // LastSeenEditText.setText(milliseconds(PickedCalenderDate));
                     pickedDate2 = true;
