@@ -37,7 +37,6 @@ public class AddPackageActivity extends AppCompatActivity {
         editTextLocation = findViewById(R.id.editTextLocation);
         editTextCapacity = findViewById(R.id.editTextCapacity);
     }
-
     public void AddPackage(View view) {
         String capacity = editTextCapacity.getText().toString().trim();
         String location= editTextLocation.getText().toString().trim();
@@ -54,7 +53,6 @@ public class AddPackageActivity extends AppCompatActivity {
             SharedPreferences.Editor editor2 = getSharedPreferences("EmployeeID", MODE_PRIVATE).edit();
             editor2.putInt("ID", realID);
             editor2.apply();
-
 
             do_it = "insert into dbo.PACKAGE " +
                     "(packageID,packageName,packageCapacity) " +
