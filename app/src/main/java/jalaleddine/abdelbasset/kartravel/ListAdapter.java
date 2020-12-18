@@ -58,6 +58,9 @@ public class ListAdapter extends ArrayAdapter<ContactInformation> {
                 else if(p.getGender().toLowerCase().equals("germany")){
                     IV.setImageResource(R.drawable.germany);
                 }
+                else if(p.getGender().toLowerCase().equals("lebanon")){
+                    IV.setImageResource(R.drawable.lebanon);
+                }
                 //Glide.with(mContext).load("http:" + p.getName()).into(IV);
             }
 
