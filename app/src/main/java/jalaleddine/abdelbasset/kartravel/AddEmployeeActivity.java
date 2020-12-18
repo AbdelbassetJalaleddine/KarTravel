@@ -109,11 +109,30 @@ public class AddEmployeeActivity extends AppCompatActivity implements DatePicker
             editor2.putInt("ID", realID);
             editor2.apply();
 
-            do_it = "insert into dbo.Employee " +
+           /* do_it = "insert into dbo.Employee " +
                     "(employeeID,fName,mName,lName,phoneNumber,dob,position,startingDate,monthlySalary,address,ibanNumber,employeeType,employeeGender) " +
                     "VALUES('" + realID +"'," +  + "'" +phoney + "'" +"," + weighty + "," + heighty + ",'" + gender +"');";
-
+*/
             AddtoDatabase();
+        }
+    }
+    private void GetFromDatabase() {
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy
+                .Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
+        try {
+            Class.forName(forgy);
+            connection = DriverManager.getConnection(url,username
+                    ,pass);
+            System.out.println("Done " + do_it);
+            Statement statement = connection.createStatement();
+            statement.execute(do_it);
+
+            Toast.makeText(this, "Added to Database!", Toast.LENGTH_SHORT).show();
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
         }
     }
     public void AddDateLastSeen(View view) {
