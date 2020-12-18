@@ -13,6 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -39,6 +40,7 @@ public class PackagesActivity extends AppCompatActivity {
     private static String url = "jdbc:jtds:sqlserver://" + ip
             + ":" + port + "/" + database;
     private Connection connection = null;
+    String do_it;
 
     AlertDialog spotsDialog;
     BottomNavigationView navigationView;
@@ -47,6 +49,7 @@ public class PackagesActivity extends AppCompatActivity {
 
     ListAdapter adapter;
     ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +60,10 @@ public class PackagesActivity extends AppCompatActivity {
         BottomNavigation();
         GetInfo();
         contactInformationArrayList = new ArrayList<>();
+
+
     }
+
     private void GetInfo() {
         SharedPreferences editor = getSharedPreferences("UsersData", MODE_PRIVATE);
         String number = editor.getString("phonenumber", "1");
