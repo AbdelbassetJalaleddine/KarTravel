@@ -37,7 +37,7 @@ public class EmployeesActivity extends AppCompatActivity {
     BottomNavigationView navigationView;
 
     // Connect to MSSQL
-    private static String ip = "192.168.10.101";
+    private static String ip = "192.168.10.102";
     private static String port = "1433";
     private static String forgy = "net.sourceforge.jtds.jdbc.Driver";
     private static String database = "KARTRAVEL";

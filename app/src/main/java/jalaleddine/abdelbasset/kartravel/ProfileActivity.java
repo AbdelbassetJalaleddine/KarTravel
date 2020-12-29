@@ -97,7 +97,7 @@ public class ProfileActivity extends AppCompatActivity implements ForceUpdateChe
                                     navigationView.setSelectedItemId(R.id.navigation_profile);
 
                                 }
-                                else if (number.contains("61657756")){
+                                else if (number.contains("81657756")){
                                     //TODO: Fix for User
                                     if(gender.toLowerCase().equals("male")){
                                         iv.setImageResource(R.drawable.maleuser);
